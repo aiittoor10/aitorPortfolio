@@ -1,0 +1,575 @@
+/* ==============================
+   PROYECTOS + TECNOLOGÍAS
+   ============================== */
+
+.proyectos {
+  padding: 100px 0;
+}
+
+.proyectos__contenedor {
+  width: min(1320px, calc(100% - 36px));
+  margin: 0 auto;
+}
+
+/* Caja principal que agrupa proyectos + tecnologías */
+.proyectos__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 470px;
+  gap: 34px;
+
+  padding: 30px;
+  border: none;
+  border-radius: 34px;
+
+  background:
+    linear-gradient(145deg, rgba(15, 23, 42, 0.86), rgba(2, 6, 23, 0.62)),
+    rgba(2, 6, 23, 0.76);
+
+  box-shadow:
+    0 36px 110px rgba(0, 0, 0, 0.36),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* ==============================
+   CABECERA PROYECTOS
+   ============================== */
+
+.proyectos__zona {
+  min-width: 0;
+}
+
+.proyectos__cabecera-compacta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  margin-bottom: 26px;
+}
+
+.proyectos__cabecera-compacta > div {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.proyectos__icono-titulo {
+  color: #8b5cf6;
+  font-size: 1.55rem;
+  font-weight: 900;
+}
+
+.proyectos__cabecera-compacta h2,
+.tecnologias-mini__cabecera h2 {
+  color: #ffffff;
+  font-size: 1.65rem;
+  letter-spacing: -0.045em;
+}
+
+.proyectos__ver-todos {
+  color: #818cf8;
+  font-size: 0.95rem;
+  font-weight: 850;
+  white-space: nowrap;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.proyectos__ver-todos:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* ==============================
+   GRID PROYECTOS
+   ============================== */
+
+.proyectos__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* ==============================
+   TARJETA DE PROYECTO
+   ============================== */
+
+.proyecto-card {
+  overflow: hidden;
+  min-width: 0;
+  border: none;
+  border-radius: 28px;
+
+  background:
+    linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.52)),
+    rgba(15, 23, 42, 0.78);
+
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.proyecto-card:hover {
+  transform: translateY(-8px);
+  background:
+    linear-gradient(145deg, rgba(30, 41, 59, 0.92), rgba(15, 23, 42, 0.6)),
+    rgba(15, 23, 42, 0.86);
+  box-shadow: 0 36px 95px rgba(37, 99, 235, 0.18);
+}
+
+/* ==============================
+   ZONA VISUAL / IMAGEN
+   ============================== */
+
+.proyecto-card__visual {
+  position: relative;
+  height: 210px;
+  padding: 18px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.26), transparent 35%),
+    radial-gradient(circle at 80% 40%, rgba(168, 85, 247, 0.26), transparent 35%),
+    rgba(2, 6, 23, 0.76);
+}
+
+.proyecto-card__imagen {
+  width: 100%;
+  height: 100%;
+  border-radius: 23px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(2, 6, 23, 0.48);
+  border: none;
+}
+
+.proyecto-card__imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 16px;
+  display: block;
+}
+
+/* Icono flotante de la tarjeta */
+.proyecto-card__icono {
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+
+  display: grid;
+  place-items: center;
+
+  width: 50px;
+  height: 50px;
+
+  border: none;
+  border-radius: 17px;
+
+  background: rgba(15, 23, 42, 0.86);
+  backdrop-filter: blur(14px);
+
+  font-size: 1.45rem;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.36);
+}
+
+/* ==============================
+   MOCKUP FALSO
+   ============================== */
+
+.proyecto-card__mockup {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 23px;
+  background: rgba(2, 6, 23, 0.58);
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+  transform: rotate(-2deg);
+  box-shadow: 0 22px 52px rgba(0, 0, 0, 0.34);
+}
+
+.proyecto-card:nth-child(2) .proyecto-card__mockup {
+  transform: rotate(2deg);
+}
+
+.proyecto-card:nth-child(3) .proyecto-card__mockup {
+  transform: rotate(-1deg);
+}
+
+.proyecto-card__barra {
+  height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 14px;
+  border-bottom: none;
+}
+
+.proyecto-card__barra span {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #64748b;
+}
+
+.proyecto-card__contenido-falso {
+  padding: 18px;
+}
+
+.proyecto-card__linea {
+  width: 60%;
+  height: 10px;
+  margin-bottom: 12px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.22);
+}
+
+.proyecto-card__linea.grande {
+  width: 78%;
+  height: 14px;
+  background: linear-gradient(
+    90deg,
+    rgba(96, 165, 250, 0.8),
+    rgba(168, 85, 247, 0.7)
+  );
+}
+
+.proyecto-card__grafico {
+  height: 70px;
+  margin-top: 18px;
+  display: flex;
+  align-items: end;
+  gap: 10px;
+}
+
+.proyecto-card__grafico span {
+  flex: 1;
+  border-radius: 999px 999px 4px 4px;
+  background: linear-gradient(180deg, #38bdf8, #7c3aed);
+  opacity: 0.75;
+}
+
+.proyecto-card__grafico span:nth-child(1) {
+  height: 35%;
+}
+
+.proyecto-card__grafico span:nth-child(2) {
+  height: 70%;
+}
+
+.proyecto-card__grafico span:nth-child(3) {
+  height: 48%;
+}
+
+.proyecto-card__grafico span:nth-child(4) {
+  height: 88%;
+}
+
+.proyecto-card__grafico span:nth-child(5) {
+  height: 58%;
+}
+
+/* ==============================
+   CONTENIDO DE LA TARJETA
+   ============================== */
+
+.proyecto-card__body {
+  padding: 24px;
+}
+
+.proyecto-card__tipo {
+  display: inline-flex;
+  margin-bottom: 13px;
+
+  color: #818cf8;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+}
+
+.proyecto-card h3 {
+  margin-bottom: 12px;
+  color: #ffffff;
+  font-size: 1.38rem;
+  line-height: 1.22;
+  letter-spacing: -0.04em;
+}
+
+.proyecto-card p {
+  min-height: 94px;
+  color: #94a3b8;
+  line-height: 1.62;
+  font-size: 0.98rem;
+}
+
+.proyecto-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.proyecto-card__tags span {
+  padding: 7px 11px;
+  border: none;
+  border-radius: 999px;
+
+  color: #cbd5e1;
+  font-size: 0.78rem;
+
+  background: rgba(15, 23, 42, 0.76);
+}
+
+/* ==============================
+   TECNOLOGÍAS MINI
+   ============================== */
+
+.tecnologias-mini {
+  min-width: 0;
+}
+
+.tecnologias-mini__cabecera {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+.tecnologias-mini__icono {
+  color: #8b5cf6;
+  font-size: 1.45rem;
+}
+
+.tecnologias-mini__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.tecnologia-mini-card {
+  min-height: 130px;
+  padding: 20px 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  border: none;
+  border-radius: 24px;
+
+  background:
+    linear-gradient(145deg, rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.48)),
+    rgba(15, 23, 42, 0.72);
+
+  box-shadow: 0 22px 52px rgba(0, 0, 0, 0.22);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.tecnologia-mini-card:hover {
+  transform: translateY(-6px);
+  background:
+    linear-gradient(145deg, rgba(30, 41, 59, 0.94), rgba(15, 23, 42, 0.66)),
+    rgba(15, 23, 42, 0.86);
+  box-shadow: 0 30px 70px rgba(37, 99, 235, 0.14);
+}
+
+/* Icono grande sin cuadrado interior */
+.tecnologia-mini-card__icono {
+  width: auto;
+  height: auto;
+  margin-bottom: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.tecnologia-mini-card span {
+  color: #dbeafe;
+  font-size: 0.86rem;
+  font-weight: 850;
+  text-align: center;
+}
+
+/* Colores concretos para algunos iconos */
+.tecnologia-mini-card:nth-child(1) .tecnologia-mini-card__icono {
+  color: #facc15;
+}
+
+.tecnologia-mini-card:nth-child(2) .tecnologia-mini-card__icono {
+  color: #60a5fa;
+}
+
+.tecnologia-mini-card:nth-child(3) .tecnologia-mini-card__icono {
+  color: #22d3ee;
+}
+
+.tecnologia-mini-card:nth-child(5) .tecnologia-mini-card__icono {
+  color: #22c55e;
+}
+
+.tecnologia-mini-card:nth-child(8) .tecnologia-mini-card__icono {
+  color: #fb7185;
+}
+
+.tecnologia-mini-card:nth-child(10) .tecnologia-mini-card__icono {
+  color: #f59e0b;
+}
+
+.tecnologia-mini-card:nth-child(11) .tecnologia-mini-card__icono {
+  color: #ec4899;
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 1280px) {
+  .proyectos__contenedor {
+    width: min(1180px, calc(100% - 32px));
+  }
+
+  .proyectos__layout {
+    grid-template-columns: minmax(0, 1fr) 430px;
+  }
+
+  .proyecto-card__visual {
+    height: 185px;
+  }
+
+  .proyecto-card h3 {
+    font-size: 1.22rem;
+  }
+
+  .proyecto-card p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .proyectos__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .tecnologias-mini__grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .tecnologia-mini-card {
+    min-height: 118px;
+  }
+}
+
+@media (max-width: 820px) {
+  .proyectos__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .proyecto-card__visual {
+    height: 280px;
+  }
+
+  .proyecto-card p {
+    min-height: auto;
+  }
+
+  .tecnologias-mini__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .proyectos {
+    padding: 65px 0;
+  }
+
+  .proyectos__contenedor {
+    width: min(100% - 22px, 1180px);
+  }
+
+  .proyectos__layout {
+    padding: 16px;
+    border-radius: 26px;
+  }
+
+  .proyectos__cabecera-compacta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .proyectos__cabecera-compacta h2,
+  .tecnologias-mini__cabecera h2 {
+    font-size: 1.35rem;
+  }
+
+  .proyectos__ver-todos {
+    font-size: 0.82rem;
+  }
+
+  .proyecto-card__visual {
+    height: 220px;
+    padding: 14px;
+  }
+
+  .proyecto-card__imagen img {
+    padding: 14px;
+  }
+
+  .proyecto-card__body {
+    padding: 20px;
+  }
+
+  .proyecto-card h3 {
+    font-size: 1.18rem;
+  }
+
+  .proyecto-card p {
+    font-size: 0.9rem;
+  }
+
+  .proyecto-card__icono {
+    right: 18px;
+    bottom: 14px;
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    font-size: 1.25rem;
+  }
+
+  .tecnologias-mini__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tecnologia-mini-card {
+    min-height: 118px;
+  }
+
+  .tecnologia-mini-card__icono {
+    font-size: 2.55rem;
+    margin-bottom: 12px;
+  }
+}

@@ -1,0 +1,462 @@
+/* ==============================
+   CONTACTO + SOBRE MÍ COMBINADO
+   ============================== */
+
+.contacto {
+  position: relative;
+  padding: 90px 0;
+  overflow: hidden;
+}
+
+.contacto::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 30%, rgba(37, 99, 235, 0.12), transparent 28%),
+    radial-gradient(circle at 85% 50%, rgba(168, 85, 247, 0.14), transparent 30%);
+  pointer-events: none;
+}
+
+.contacto__contenedor {
+  position: relative;
+  z-index: 1;
+  width: min(1320px, calc(100% - 36px));
+  margin: 0 auto;
+}
+
+.contacto__card {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 34px;
+
+  padding: 24px;
+  border-radius: 30px;
+
+  background:
+    linear-gradient(145deg, rgba(15, 23, 42, 0.86), rgba(2, 6, 23, 0.62)),
+    rgba(2, 6, 23, 0.76);
+
+  box-shadow:
+    0 34px 100px rgba(0, 0, 0, 0.36),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* ==============================
+   SOBRE MÍ
+   ============================== */
+
+.contacto__sobre-mi {
+  min-width: 0;
+}
+
+.contacto__titulo-bloque {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.contacto__titulo-bloque span {
+  color: #818cf8;
+  font-size: 1.25rem;
+}
+
+.contacto__titulo-bloque h2,
+.contacto__contenido h2 {
+  color: #ffffff;
+  font-size: 1.35rem;
+  letter-spacing: -0.04em;
+}
+
+.contacto__sobre-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+/* FOTO CORREGIDA */
+.contacto__foto {
+  width: 220px;
+  height: 220px;
+  border-radius: 28px;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  background:
+    radial-gradient(circle at 50% 20%, rgba(96, 165, 250, 0.18), transparent 35%),
+    rgba(15, 23, 42, 0.8);
+
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.28),
+    0 0 60px rgba(37, 99, 235, 0.12);
+}
+
+.contacto__foto img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.contacto__texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contacto__texto p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.contacto__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.contacto__stats article {
+  min-width: 0;
+}
+
+.contacto__stats strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.contacto__stats article:nth-child(1) strong {
+  color: #60a5fa;
+}
+
+.contacto__stats article:nth-child(2) strong {
+  color: #c084fc;
+}
+
+.contacto__stats article:nth-child(3) strong {
+  color: #22c55e;
+}
+
+.contacto__stats article:nth-child(4) strong {
+  color: #facc15;
+}
+
+.contacto__stats span {
+  display: block;
+  color: #64748b;
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+/* ==============================
+   HABLEMOS
+   ============================== */
+
+.contacto__hablemos {
+  position: relative;
+  min-height: 300px;
+
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 18px;
+  align-items: center;
+
+  overflow: hidden;
+  border-radius: 26px;
+  padding: 22px;
+
+  background:
+    radial-gradient(circle at 78% 42%, rgba(37, 99, 235, 0.16), transparent 28%),
+    radial-gradient(circle at 95% 25%, rgba(168, 85, 247, 0.18), transparent 28%),
+    rgba(15, 23, 42, 0.42);
+}
+
+.contacto__contenido {
+  position: relative;
+  z-index: 2;
+}
+
+.contacto__contenido p {
+  margin-top: 12px;
+  margin-bottom: 18px;
+  max-width: 440px;
+
+  color: #94a3b8;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.contacto__enlaces {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.contacto__enlaces a {
+  width: fit-content;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.contacto__enlaces a:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.contacto__enlaces span {
+  width: 24px;
+  height: 24px;
+
+  display: grid;
+  place-items: center;
+
+  color: #60a5fa;
+  font-size: 0.9rem;
+}
+
+.contacto__boton {
+  width: min(100%, 320px);
+  min-height: 54px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border-radius: 16px;
+
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 900;
+
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  box-shadow:
+    0 20px 50px rgba(37, 99, 235, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.contacto__boton:hover {
+  transform: translateY(-3px);
+  filter: saturate(1.14);
+  box-shadow:
+    0 28px 70px rgba(124, 58, 237, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.contacto__boton span {
+  transition: transform 0.25s ease;
+}
+
+.contacto__boton:hover span {
+  transform: translate(2px, -2px);
+}
+
+/* ==============================
+   ILUSTRACIÓN SOBRE
+   ============================== */
+
+.contacto__ilustracion {
+  position: relative;
+  z-index: 1;
+
+  width: 220px;
+  height: 220px;
+
+  display: grid;
+  place-items: center;
+}
+
+.contacto__ilustracion::before {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border-radius: 999px;
+
+  background:
+    radial-gradient(circle, rgba(37, 99, 235, 0.24), transparent 58%),
+    radial-gradient(circle, rgba(168, 85, 247, 0.22), transparent 65%);
+
+  filter: blur(12px);
+}
+
+.contacto__sobre-icono {
+  position: absolute;
+  width: 150px;
+  height: 96px;
+
+  border-radius: 14px;
+  transform: rotate(-12deg);
+
+  background:
+    linear-gradient(135deg, rgba(37, 99, 235, 0.95), rgba(124, 58, 237, 0.92));
+
+  box-shadow:
+    0 0 36px rgba(37, 99, 235, 0.42),
+    0 0 70px rgba(124, 58, 237, 0.28);
+}
+
+.contacto__sobre-icono::before,
+.contacto__sobre-icono::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background:
+    linear-gradient(135deg, transparent 49%, rgba(255, 255, 255, 0.5) 50%, transparent 51%),
+    linear-gradient(225deg, transparent 49%, rgba(255, 255, 255, 0.24) 50%, transparent 51%);
+}
+
+.contacto__sobre-tapa {
+  position: absolute;
+  width: 150px;
+  height: 76px;
+
+  clip-path: polygon(0 0, 50% 56%, 100% 0, 100% 100%, 0 100%);
+  border-radius: 14px;
+
+  transform: rotate(-12deg) translateY(10px);
+
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.22), rgba(255, 255, 255, 0.08));
+}
+
+.contacto__particula {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+
+  background: rgba(37, 99, 235, 0.22);
+  box-shadow: 0 0 30px rgba(37, 99, 235, 0.35);
+}
+
+.contacto__particula--uno {
+  top: 20px;
+  right: 24px;
+  transform: rotate(18deg);
+}
+
+.contacto__particula--dos {
+  bottom: 24px;
+  left: 18px;
+  transform: rotate(-22deg);
+}
+
+.contacto__particula--tres {
+  bottom: 42px;
+  right: 8px;
+  width: 16px;
+  height: 16px;
+  transform: rotate(36deg);
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 1180px) {
+  .contacto__card {
+    grid-template-columns: 1fr;
+  }
+
+  .contacto__hablemos {
+    grid-template-columns: 1fr 240px;
+  }
+}
+
+@media (max-width: 780px) {
+  .contacto__sobre-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contacto__foto {
+    width: 220px;
+    height: 220px;
+  }
+
+  .contacto__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contacto__hablemos {
+    grid-template-columns: 1fr;
+  }
+
+  .contacto__ilustracion {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .contacto {
+    padding: 65px 0;
+  }
+
+  .contacto__contenedor {
+    width: min(100% - 22px, 1320px);
+  }
+
+  .contacto__card {
+    padding: 16px;
+    border-radius: 26px;
+  }
+
+  .contacto__hablemos {
+    padding: 18px;
+  }
+
+  .contacto__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .contacto__foto {
+    width: 100%;
+    max-width: 230px;
+    height: 230px;
+  }
+
+  .contacto__boton {
+    width: 100%;
+  }
+
+  .contacto__ilustracion {
+    width: 190px;
+    height: 190px;
+  }
+
+  .contacto__sobre-icono,
+  .contacto__sobre-tapa {
+    width: 130px;
+  }
+
+  .contacto__sobre-icono {
+    height: 84px;
+  }
+
+  .contacto__sobre-tapa {
+    height: 66px;
+  }
+}
