@@ -64,9 +64,9 @@ function Footer() {
             <h3>Contacto</h3>
 
             <div className="footer__contacto">
-              <a href="mailto:aitor@email.com">
+              <a href="mailto:aitor@cobofarinas.dev">
                 <span>✉</span>
-                aitor@email.com
+                aitor@cobofarinas.dev
               </a>
 
               <a
@@ -79,7 +79,7 @@ function Footer() {
               </a>
 
               <a
-                href="https://github.com/aitor"
+                href="https://github.com/aiittoor10"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -88,7 +88,7 @@ function Footer() {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/aitor"
+                href="https://www.linkedin.com/in/aitor-cobo-fari%C3%B1as-320616297/"
                 target="_blank"
                 rel="noreferrer"
               >
