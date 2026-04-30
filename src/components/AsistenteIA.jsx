@@ -1,47 +1,32 @@
 import { useEffect, useRef, useState } from "react";
 
-const respuestas = {
-  proyectos:
-    "He trabajado en proyectos como Joaisoft, una web profesional para mostrar servicios digitales; Tokitan, una aplicación de reservas con asistente IA integrado; y automatizaciones para publicar contenido en redes sociales de forma simultánea.",
-  tecnologias:
-    "Trabajo principalmente con React, JavaScript, CSS, Node.js, Spring Boot, MySQL, Docker, n8n, APIs y herramientas de automatización. Combino frontend, backend y procesos automatizados.",
-  automatizaciones:
-    "He creado flujos con n8n y Make para conectar formularios, enviar correos automáticos, registrar datos, integrar APIs y automatizar publicaciones en redes sociales.",
-  experiencia:
-    "Tengo experiencia desarrollando proyectos web, aplicaciones con React, integraciones con backend, bases de datos y automatizaciones. Me centro en construir soluciones limpias, útiles y fáciles de mantener.",
-  contacto:
-    "Puedes contactar conmigo por email, visitar joaisoft.es o revisar mis perfiles profesionales como GitHub y LinkedIn.",
-  sobreMi:
-    "Soy Aitor Cobo Fariñas, desarrollador Full Stack. Me gusta crear aplicaciones web modernas, automatizaciones útiles y soluciones digitales bien estructuradas.",
-  noEntendido:
-    "Puedo responderte sobre proyectos, tecnologías, automatizaciones, experiencia o contacto. Prueba con una de esas palabras.",
-};
+const API_URL = "https://aitorportfolio.onrender.com/api/chat";
 
 const sugerencias = [
   {
     tipo: "proyectos",
     texto: "Proyectos",
-    pregunta: "¿Qué proyectos has desarrollado?",
+    pregunta: "Háblame de los proyectos de Aitor.",
   },
   {
     tipo: "tecnologias",
     texto: "Tecnologías",
-    pregunta: "¿Qué tecnologías utilizas?",
+    pregunta: "¿Qué tecnologías usa Aitor?",
   },
   {
     tipo: "automatizaciones",
     texto: "Automatizaciones",
-    pregunta: "¿Qué automatizaciones has creado?",
+    pregunta: "¿Qué automatizaciones ha creado Aitor?",
   },
   {
     tipo: "experiencia",
     texto: "Experiencia",
-    pregunta: "¿Qué experiencia tienes?",
+    pregunta: "¿Qué experiencia tiene Aitor?",
   },
   {
     tipo: "contacto",
     texto: "Contacto",
-    pregunta: "¿Cómo puedo contactar contigo?",
+    pregunta: "¿Cómo puedo contactar con Aitor?",
   },
 ];
 
@@ -50,7 +35,7 @@ const mensajesIniciales = [
     id: "mensaje-inicial-1",
     autor: "ia",
     texto:
-      "Hola 👋 Soy el asistente IA de Aitor. Puedes preguntarme sobre sus proyectos, tecnologías, automatizaciones, experiencia o contacto.",
+      "Hola 👋 Soy el asistente IA de Aitor. Puedes preguntarme sobre Tokitan, Joaisoft, automatizaciones, tecnologías, experiencia o contacto.",
     hora: "10:42",
   },
 ];
@@ -59,6 +44,8 @@ function AsistenteIA() {
   const [mensajes, setMensajes] = useState(mensajesIniciales);
   const [textoUsuario, setTextoUsuario] = useState("");
   const [tipoActivo, setTipoActivo] = useState("");
+  const [cargando, setCargando] = useState(false);
+  const [error, setError] = useState("");
 
   const contadorId = useRef(1);
   const mensajesRef = useRef(null);
@@ -70,7 +57,7 @@ function AsistenteIA() {
       top: mensajesRef.current.scrollHeight,
       behavior: "smooth",
     });
-  }, [mensajes]);
+  }, [mensajes, cargando]);
 
   const crearId = () => {
     contadorId.current += 1;
@@ -84,23 +71,17 @@ function AsistenteIA() {
     });
   };
 
-  const normalizarTexto = (texto) => {
-    return texto
+  const detectarTipoActivo = (texto) => {
+    const pregunta = texto
       .toLowerCase()
       .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .trim();
-  };
-
-  const detectarRespuesta = (texto) => {
-    const pregunta = normalizarTexto(texto);
+      .replace(/[\u0300-\u036f]/g, "");
 
     if (
       pregunta.includes("proyecto") ||
-      pregunta.includes("trabajo") ||
-      pregunta.includes("portfolio") ||
+      pregunta.includes("tokitan") ||
       pregunta.includes("joaisoft") ||
-      pregunta.includes("tokitan")
+      pregunta.includes("portfolio")
     ) {
       return "proyectos";
     }
@@ -109,7 +90,6 @@ function AsistenteIA() {
       pregunta.includes("tecnologia") ||
       pregunta.includes("stack") ||
       pregunta.includes("react") ||
-      pregunta.includes("javascript") ||
       pregunta.includes("spring") ||
       pregunta.includes("node")
     ) {
@@ -121,47 +101,55 @@ function AsistenteIA() {
       pregunta.includes("automatizaciones") ||
       pregunta.includes("n8n") ||
       pregunta.includes("make") ||
-      pregunta.includes("flujo") ||
-      pregunta.includes("workflow") ||
       pregunta.includes("redes sociales")
     ) {
       return "automatizaciones";
     }
 
-    if (
-      pregunta.includes("experiencia") ||
-      pregunta.includes("anos") ||
-      pregunta.includes("años") ||
-      pregunta.includes("perfil")
-    ) {
+    if (pregunta.includes("experiencia") || pregunta.includes("perfil")) {
       return "experiencia";
     }
 
     if (
       pregunta.includes("contacto") ||
       pregunta.includes("email") ||
-      pregunta.includes("correo") ||
-      pregunta.includes("linkedin") ||
       pregunta.includes("github") ||
-      pregunta.includes("joaisoft")
+      pregunta.includes("linkedin")
     ) {
       return "contacto";
     }
 
-    if (
-      pregunta.includes("quien eres") ||
-      pregunta.includes("quién eres") ||
-      pregunta.includes("sobre ti") ||
-      pregunta.includes("aitor") ||
-      pregunta.includes("cobo")
-    ) {
-      return "sobreMi";
-    }
-
-    return "noEntendido";
+    return "";
   };
 
-  const agregarConversacion = (pregunta, tipoRespuesta) => {
+  const llamarApiChat = async (mensajesActualizados) => {
+    const respuesta = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        mensajes: mensajesActualizados.map((mensaje) => ({
+          autor: mensaje.autor,
+          texto: mensaje.texto,
+        })),
+      }),
+    });
+
+    const datos = await respuesta.json();
+
+    if (!respuesta.ok) {
+      throw new Error(
+        datos.error || "No se pudo obtener respuesta del asistente."
+      );
+    }
+
+    return datos.respuesta;
+  };
+
+  const agregarPregunta = async (pregunta) => {
+    if (cargando) return;
+
     const hora = obtenerHora();
 
     const mensajeUsuario = {
@@ -171,20 +159,39 @@ function AsistenteIA() {
       hora,
     };
 
-    const mensajeIA = {
-      id: crearId(),
-      autor: "ia",
-      texto: respuestas[tipoRespuesta],
-      hora,
-    };
+    const mensajesConUsuario = [...mensajes, mensajeUsuario];
 
-    setMensajes((mensajesActuales) => [
-      ...mensajesActuales,
-      mensajeUsuario,
-      mensajeIA,
-    ]);
+    setMensajes(mensajesConUsuario);
+    setTextoUsuario("");
+    setError("");
+    setCargando(true);
+    setTipoActivo(detectarTipoActivo(pregunta));
 
-    setTipoActivo(tipoRespuesta);
+    try {
+      const respuestaIA = await llamarApiChat(mensajesConUsuario);
+
+      const mensajeIA = {
+        id: crearId(),
+        autor: "ia",
+        texto: respuestaIA,
+        hora: obtenerHora(),
+      };
+
+      setMensajes((mensajesActuales) => [...mensajesActuales, mensajeIA]);
+    } catch (errorApi) {
+      const mensajeError = {
+        id: crearId(),
+        autor: "ia",
+        texto:
+          "Ahora mismo no puedo conectar con la IA. Revisa que el backend de Render esté activo.",
+        hora: obtenerHora(),
+      };
+
+      setMensajes((mensajesActuales) => [...mensajesActuales, mensajeError]);
+      setError(errorApi.message);
+    } finally {
+      setCargando(false);
+    }
   };
 
   const enviarPregunta = (event) => {
@@ -194,15 +201,12 @@ function AsistenteIA() {
 
     if (!pregunta) return;
 
-    const tipoRespuesta = detectarRespuesta(pregunta);
-
-    agregarConversacion(pregunta, tipoRespuesta);
-    setTextoUsuario("");
+    agregarPregunta(pregunta);
   };
 
   const usarSugerencia = (sugerencia) => {
-    agregarConversacion(sugerencia.pregunta, sugerencia.tipo);
-    setTextoUsuario("");
+    setTipoActivo(sugerencia.tipo);
+    agregarPregunta(sugerencia.pregunta);
   };
 
   const reiniciarConversacion = () => {
@@ -210,6 +214,8 @@ function AsistenteIA() {
     setMensajes(mensajesIniciales);
     setTextoUsuario("");
     setTipoActivo("");
+    setError("");
+    setCargando(false);
 
     setTimeout(() => {
       if (!mensajesRef.current) return;
@@ -232,8 +238,8 @@ function AsistenteIA() {
           </h2>
 
           <p>
-            Pregunta de forma rápida sobre proyectos, tecnologías,
-            automatizaciones, experiencia o contacto.
+            Pregunta sobre proyectos, tecnologías, automatizaciones, experiencia
+            o contacto.
           </p>
         </div>
 
@@ -249,7 +255,7 @@ function AsistenteIA() {
 
                 <p>
                   <span></span>
-                  En línea
+                  {cargando ? "Escribiendo..." : "En línea"}
                 </p>
               </div>
             </div>
@@ -292,6 +298,18 @@ function AsistenteIA() {
                 </div>
               );
             })}
+
+            {cargando && (
+              <div className="asistente-wa__fila">
+                <div className="asistente-wa__burbuja asistente-wa__burbuja--ia asistente-wa__burbuja--typing">
+                  <p>
+                    <span className="asistente-wa__typing-dot"></span>
+                    <span className="asistente-wa__typing-dot"></span>
+                    <span className="asistente-wa__typing-dot"></span>
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
 
           {!textoUsuario.trim() && (
@@ -300,6 +318,7 @@ function AsistenteIA() {
                 <button
                   type="button"
                   key={sugerencia.tipo}
+                  disabled={cargando}
                   className={
                     tipoActivo === sugerencia.tipo
                       ? "asistente-wa__sugerencia activa"
@@ -316,16 +335,23 @@ function AsistenteIA() {
           <form className="asistente-wa__form" onSubmit={enviarPregunta}>
             <input
               type="text"
-              placeholder="Escribe un mensaje..."
+              placeholder={
+                cargando
+                  ? "El asistente está respondiendo..."
+                  : "Escribe un mensaje..."
+              }
               value={textoUsuario}
               onChange={(event) => setTextoUsuario(event.target.value)}
               aria-label="Escribe un mensaje"
+              disabled={cargando}
             />
 
-            <button type="submit" aria-label="Enviar mensaje">
+            <button type="submit" aria-label="Enviar mensaje" disabled={cargando}>
               ➤
             </button>
           </form>
+
+          {error && <p className="asistente-wa__error">{error}</p>}
         </div>
       </div>
     </section>
