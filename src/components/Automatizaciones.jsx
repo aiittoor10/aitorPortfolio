@@ -121,7 +121,7 @@ function AsistenteIA() {
   };
 
   const llamarApiChat = async (mensajesActualizados) => {
-    const respuesta = await fetch("http://localhost:3001/api/chat", {
+   const respuesta = await fetch("https://aitorportfolio.onrender.com/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
