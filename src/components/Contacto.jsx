@@ -78,7 +78,7 @@ function Contacto() {
               <div className="contacto__enlaces">
                 <a href="mailto:aitor@email.com">
                   <span>✉</span>
-                  aitor@email.com
+                  aitor@cobofarinas.dev
                 </a>
 
                 <a
@@ -91,7 +91,7 @@ function Contacto() {
                 </a>
 
                 <a
-                  href="https://github.com/aitor"
+                  href="https://github.com/aiittoor10"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -100,7 +100,7 @@ function Contacto() {
                 </a>
 
                 <a
-                  href="https://www.linkedin.com/in/aitor"
+                  href="https://www.linkedin.com/in/aitor-cobo-fari%C3%B1as-320616297/"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -109,7 +109,7 @@ function Contacto() {
                 </a>
               </div>
 
-              <a href="mailto:aitor@email.com" className="contacto__boton">
+              <a href="mailto:aitor@cobofarinas.dev" className="contacto__boton">
                 Enviar mensaje
                 <span>↗</span>
               </a>
