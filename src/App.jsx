@@ -15,10 +15,11 @@ function App() {
 
       <main>
         <Hero />
+        <Contacto />
+
         <Proyectos />
         <Automatizaciones />
         <AsistenteIA />
-        <Contacto />
       </main>
 
       <Footer />
