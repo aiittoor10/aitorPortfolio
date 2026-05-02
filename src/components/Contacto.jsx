@@ -1,5 +1,3 @@
-import yo from "../assets/yo.png";
-
 function Contacto() {
   return (
     <section className="contacto" id="contacto">
@@ -14,11 +12,7 @@ function Contacto() {
               <h2>Sobre mí</h2>
             </div>
 
-            <div className="contacto__sobre-layout">
-              <div className="contacto__foto">
-                <img src={yo} alt="Aitor Cobo Fariñas" />
-              </div>
-
+            <div className="contacto__sobre-layout contacto__sobre-layout--sin-foto">
               <div className="contacto__texto">
                 <p>
                   Soy Aitor Cobo Fariñas, desarrollador Full Stack apasionado
@@ -76,7 +70,7 @@ function Contacto() {
               </p>
 
               <div className="contacto__enlaces">
-                <a href="mailto:aitor@email.com">
+                <a href="mailto:aitor@cobofarinas.dev">
                   <span>✉</span>
                   aitor@cobofarinas.dev
                 </a>

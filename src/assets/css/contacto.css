@@ -70,65 +70,52 @@
 }
 
 .contacto__sobre-layout {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 28px;
-  align-items: center;
-}
-
-/* FOTO CORREGIDA */
-.contacto__foto {
-  width: 220px;
-  height: 220px;
-  border-radius: 28px;
-  overflow: hidden;
-  flex-shrink: 0;
-
-  background:
-    radial-gradient(circle at 50% 20%, rgba(96, 165, 250, 0.18), transparent 35%),
-    rgba(15, 23, 42, 0.8);
-
-  box-shadow:
-    0 26px 70px rgba(0, 0, 0, 0.28),
-    0 0 60px rgba(37, 99, 235, 0.12);
-}
-
-.contacto__foto img {
-  width: 100%;
-  height: 100%;
   display: block;
-  object-fit: cover;
-  object-position: center center;
+}
+
+.contacto__sobre-layout--sin-foto {
+  display: block;
 }
 
 .contacto__texto {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 760px;
 }
 
 .contacto__texto p {
   color: #94a3b8;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  margin-bottom: 12px;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  margin-bottom: 13px;
 }
 
 .contacto__stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
-  margin-top: 14px;
+  margin-top: 22px;
 }
 
 .contacto__stats article {
   min-width: 0;
+  padding: 14px 12px;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(145deg, rgba(15, 23, 42, 0.74), rgba(15, 23, 42, 0.38)),
+    rgba(15, 23, 42, 0.56);
+
+  box-shadow:
+    0 16px 38px rgba(0, 0, 0, 0.16),
+    inset 0 0 0 1px rgba(148, 163, 184, 0.1);
 }
 
 .contacto__stats strong {
   display: block;
   margin-bottom: 5px;
-  font-size: 1.15rem;
+  font-size: 1.18rem;
   font-weight: 900;
 }
 
@@ -150,8 +137,8 @@
 
 .contacto__stats span {
   display: block;
-  color: #64748b;
-  font-size: 0.72rem;
+  color: #94a3b8;
+  font-size: 0.74rem;
   line-height: 1.35;
 }
 
@@ -382,21 +369,16 @@
     grid-template-columns: 1fr;
   }
 
+  .contacto__texto {
+    max-width: 100%;
+  }
+
   .contacto__hablemos {
     grid-template-columns: 1fr 240px;
   }
 }
 
 @media (max-width: 780px) {
-  .contacto__sobre-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .contacto__foto {
-    width: 220px;
-    height: 220px;
-  }
-
   .contacto__stats {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -430,12 +412,6 @@
 
   .contacto__stats {
     grid-template-columns: 1fr;
-  }
-
-  .contacto__foto {
-    width: 100%;
-    max-width: 230px;
-    height: 230px;
   }
 
   .contacto__boton {
