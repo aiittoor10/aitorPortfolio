@@ -5,6 +5,7 @@ import Automatizaciones from "./components/Automatizaciones";
 import AsistenteIA from "./components/AsistenteIA";
 import Contacto from "./components/Contacto";
 import Footer from "./components/Footer";
+import MicroinformaticaRedes from "./components/MicroinformaticaRedes";
 
 import "./App.css";
 
@@ -20,6 +21,7 @@ function App() {
         <Proyectos />
         <Automatizaciones />
         <AsistenteIA />
+        <MicroinformaticaRedes/>
       </main>
 
       <Footer />
