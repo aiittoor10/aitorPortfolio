@@ -11,20 +11,28 @@ function Footer() {
           <div className="footer__marca">
             <a href="#inicio" className="footer__logo-link">
               <span className="footer__logo">A</span>
+
               <div>
                 <strong>Aitor Cobo Fariñas</strong>
-                <p>Desarrollador Full Stack</p>
+                <p>Desarrollador Full Stack · Soporte IT</p>
               </div>
             </a>
 
             <p className="footer__descripcion">
-              Portfolio personal orientado al desarrollo web, backend,
-              automatizaciones, bases de datos e integraciones digitales.
+              Portfolio personal donde uno desarrollo web, backend,
+              automatizaciones, inteligencia artificial, bases de datos y soporte
+              técnico para crear soluciones digitales completas.
             </p>
           </div>
 
-          <div className="footer__cta">
-            <span>Disponible para nuevos proyectos</span>
+          <div className="footer__estado">
+            <span className="footer__estado-punto"></span>
+
+            <div>
+              <strong>Disponible para nuevos proyectos</strong>
+              <p>Colaboraciones, desarrollo web y automatizaciones.</p>
+            </div>
+
             <a href="#contacto">Hablemos</a>
           </div>
         </div>
@@ -40,7 +48,8 @@ function Footer() {
               <a href="#inicio">Inicio</a>
               <a href="#proyectos">Proyectos</a>
               <a href="#automatizaciones">Automatizaciones</a>
-              <a href="#tecnologias">Tecnologías</a>
+              <a href="#microinformatica">Soporte IT</a>
+              <a href="#asistente-ia">Asistente IA</a>
               <a href="#contacto">Contacto</a>
             </nav>
           </div>
@@ -54,9 +63,11 @@ function Footer() {
               <span>Spring Boot</span>
               <span>Node.js</span>
               <span>n8n</span>
+              <span>OpenAI</span>
               <span>APIs</span>
+              <span>Docker</span>
+              <span>Linux Server</span>
               <span>Bases de datos</span>
-              <span>Automatización</span>
             </div>
           </div>
 
@@ -106,8 +117,8 @@ function Footer() {
           <p>© {anioActual} Aitor Cobo Fariñas. Todos los derechos reservados.</p>
 
           <p>
-            Hecho con <span>React</span>, código limpio y muchas ganas de seguir
-            creciendo.
+            Hecho con <span>React</span>, criterio técnico y muchas ganas de
+            seguir creciendo.
           </p>
         </div>
       </div>

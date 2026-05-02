@@ -218,7 +218,6 @@ function Proyectos() {
               <span className="tecnologias-mini__icono">◈</span>
               <div>
                 <h2>Tecnologías</h2>
-                <p>Stack técnico organizado por áreas</p>
               </div>
             </div>
 
