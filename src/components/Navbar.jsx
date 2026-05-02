@@ -26,7 +26,7 @@ function Navbar() {
           <a href="#automatizaciones">Automatizaciones</a>
           <a href="#tecnologias">Tecnologías</a>
           <a href="#microinformatica">Microinformática</a>
-          <a href="#sobre-mi">Sobre mí</a>
+          <a href="#contacto">Sobre mí</a>
           <a href="#contacto">Contacto</a>
         </nav>
 
