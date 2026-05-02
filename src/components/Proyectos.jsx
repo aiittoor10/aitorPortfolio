@@ -1,53 +1,138 @@
 import { proyectos } from "../data/proyectos";
 
 const tecnologias = [
+  // Frontend
+  {
+    nombre: "HTML",
+    icono: "HTML",
+    categoria: "Frontend",
+  },
+  {
+    nombre: "CSS",
+    icono: "CSS",
+    categoria: "Frontend",
+  },
+  {
+    nombre: "Bootstrap",
+    icono: "B",
+    categoria: "Frontend",
+  },
   {
     nombre: "JavaScript",
     icono: "JS",
-  },
-  {
-    nombre: "TypeScript",
-    icono: "TS",
+    categoria: "Frontend",
   },
   {
     nombre: "React",
     icono: "⚛",
+    categoria: "Frontend",
+  },
+
+  // Backend
+  {
+    nombre: "Java",
+    icono: "☕",
+    categoria: "Backend",
   },
   {
-    nombre: "Next.js",
-    icono: "N",
+    nombre: "Spring Boot",
+    icono: "SB",
+    categoria: "Backend",
   },
   {
     nombre: "Node.js",
     icono: "⬢",
+    categoria: "Backend",
   },
+
+  // Bases de datos
   {
-    nombre: "Tailwind CSS",
-    icono: "≈",
+    nombre: "MySQL",
+    icono: "SQL",
+    categoria: "Base de datos",
   },
   {
     nombre: "PostgreSQL",
     icono: "🐘",
+    categoria: "Base de datos",
   },
   {
-    nombre: "Git",
-    icono: "◆",
+    nombre: "SQLite",
+    icono: "Lite",
+    categoria: "Base de datos",
   },
+
+  // Automatización
+  {
+    nombre: "Make",
+    icono: "MK",
+    categoria: "Automatización",
+  },
+  {
+    nombre: "n8n",
+    icono: "n8n",
+    categoria: "Automatización",
+  },
+
+  // Inteligencia Artificial
+  {
+    nombre: "OpenAI",
+    icono: "AI",
+    categoria: "IA",
+  },
+  {
+    nombre: "Claude",
+    icono: "CL",
+    categoria: "IA",
+  },
+  {
+    nombre: "Gemini",
+    icono: "G",
+    categoria: "IA",
+  },
+
+  // Servidores / sistemas
   {
     nombre: "Docker",
     icono: "🐳",
+    categoria: "Sistemas",
   },
   {
-    nombre: "AWS",
-    icono: "aws",
+    nombre: "Linux Server",
+    icono: "🐧",
+    categoria: "Sistemas",
   },
   {
-    nombre: "GraphQL",
-    icono: "⬡",
+    nombre: "Windows Server",
+    icono: "WIN",
+    categoria: "Sistemas",
+  },
+
+  // Herramientas
+  {
+    nombre: "Git",
+    icono: "◆",
+    categoria: "Herramientas",
+  },
+  {
+    nombre: "GitHub",
+    icono: "GH",
+    categoria: "Herramientas",
   },
   {
     nombre: "Figma",
     icono: "F",
+    categoria: "Herramientas",
+  },
+  {
+    nombre: "VS Code",
+    icono: "</>",
+    categoria: "Herramientas",
+  },
+  {
+    nombre: "Eclipse",
+    icono: "E",
+    categoria: "Herramientas",
   },
 ];
 
@@ -108,9 +193,7 @@ function Proyectos() {
                   </div>
 
                   <div className="proyecto-card__body">
-                    <span className="proyecto-card__tipo">
-                      {proyecto.tipo}
-                    </span>
+                    <span className="proyecto-card__tipo">{proyecto.tipo}</span>
 
                     <h3>{proyecto.titulo}</h3>
 
@@ -133,17 +216,26 @@ function Proyectos() {
           <aside className="tecnologias-mini" id="tecnologias">
             <div className="tecnologias-mini__cabecera">
               <span className="tecnologias-mini__icono">◈</span>
-              <h2>Tecnologías</h2>
+              <div>
+                <h2>Tecnologías</h2>
+                <p>Stack técnico organizado por áreas</p>
+              </div>
             </div>
 
-            <div className="tecnologias-mini__grid">
+            <div className="tecnologias-mini__grid tecnologias-mini__grid--compacta">
               {tecnologias.map((tecnologia) => (
-                <article className="tecnologia-mini-card" key={tecnologia.nombre}>
+                <article
+                  className="tecnologia-mini-card"
+                  key={`${tecnologia.categoria}-${tecnologia.nombre}`}
+                  title={tecnologia.categoria}
+                >
                   <div className="tecnologia-mini-card__icono">
                     {tecnologia.icono}
                   </div>
 
                   <span>{tecnologia.nombre}</span>
+
+                  <small>{tecnologia.categoria}</small>
                 </article>
               ))}
             </div>
